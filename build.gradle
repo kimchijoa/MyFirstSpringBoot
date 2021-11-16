@@ -1,0 +1,54 @@
+//2021-11-16 첫 스프링부트 세팅
+buildscript {
+    //ext는 전역변수 설정으로 스프링부트 버젼 전역변수를 생성하며 버젼을 2.1.7로 설정한다는 뜻
+    ext{
+        springBootVersion = "2.1.7.RELEASE"
+    }
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+// 플러그인 의존성 설정
+apply plugins: 'java'
+apply plugins: 'eclipse'
+apply plugins: 'org.springframework.boot'
+// 스프링부트 의존성을 관리해주는 플러그인
+apply plugins: 'io.spring.dependency-management'
+
+//각종 의존성 라이브러리들을 어떤 원격 저장소에서 받을지 결정
+repositories {
+    marvenCentral()
+    jcenter()
+}
+
+// 프로젝트 개발에 필요한 의존성들을 선언함
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter-web')
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+}
+
+
+//plugins {
+//    id 'java'
+//}
+//
+//group 'org.example'
+//version '1.0-SNAPSHOT'
+//
+//repositories {
+//    mavenCentral()
+//}
+//
+//dependencies {
+//    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+//    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+//}
+//
+//test {
+//    useJUnitPlatform()
+//}
